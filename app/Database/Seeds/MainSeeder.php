@@ -36,16 +36,17 @@ class MainSeeder extends Seeder
                 'role' => 'director',
                 'company_id' => null
             ],
+            [
+                'username' => 'manager_jaya',
+                'password' => password_hash('123', PASSWORD_DEFAULT),
+                'role' => 'manager',
+                'company_id' => 2
+            ],
         ]);
 
         // Seed Users
         // $db->table('users')->insertBatch([
-        //     [
-        //         'username' => 'manager_jaya',
-        //         'password' => password_hash('123', PASSWORD_DEFAULT),
-        //         'role' => 'manager',
-        //         'company_id' => 1
-        //     ],
+        //     
 
         // ]);
     }
