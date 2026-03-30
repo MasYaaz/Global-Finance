@@ -10,17 +10,43 @@ class MainSeeder extends Seeder
     {
         $db = \Config\Database::connect();
 
-
+        // Seed Companies
+        $db->table('companies')->insertBatch([
+            ['name' => 'PT Maju'],
+            ['name' => 'PT Jaya'],
+        ]);
 
         // Seed Users
         $db->table('users')->insertBatch([
             [
-                'username' => 'manager_jaya',
+                'username' => 'admin',
+                'password' => password_hash('123', PASSWORD_DEFAULT),
+                'role' => 'admin',
+                'company_id' => null
+            ],
+            [
+                'username' => 'manager_maju',
                 'password' => password_hash('123', PASSWORD_DEFAULT),
                 'role' => 'manager',
                 'company_id' => 1
             ],
-
+            [
+                'username' => 'direktur',
+                'password' => password_hash('123', PASSWORD_DEFAULT),
+                'role' => 'director',
+                'company_id' => null
+            ],
         ]);
+
+        // Seed Users
+        // $db->table('users')->insertBatch([
+        //     [
+        //         'username' => 'manager_jaya',
+        //         'password' => password_hash('123', PASSWORD_DEFAULT),
+        //         'role' => 'manager',
+        //         'company_id' => 1
+        //     ],
+
+        // ]);
     }
 }
